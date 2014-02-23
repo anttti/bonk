@@ -47,6 +47,7 @@
     player.physicsBody = [SKPhysicsBody bodyWithPolygonFromPath:path];
     
     player.physicsBody.categoryBitMask = PhysicsCategoryPlayer;
+	player.physicsBody.contactTestBitMask = PhysicsCategoryBomb;
     player.physicsBody.dynamic = NO;
     
     return player;
@@ -65,7 +66,7 @@
     SKLabelNode *scoreLabel = [SKLabelNode labelNodeWithFontNamed:UI_FONT];
     scoreLabel.text = @"Score: 0";
     scoreLabel.color = [SKColor whiteColor];
-    scoreLabel.position = CGPointMake(0, _size.height - scoreLabel.frame.size.height);
+    scoreLabel.position = CGPointMake(UI_PADDING, _size.height - scoreLabel.frame.size.height - UI_PADDING);
     scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
     
     return scoreLabel;
@@ -76,7 +77,7 @@
     SKLabelNode *timeLabel = [SKLabelNode labelNodeWithFontNamed:UI_FONT];
     timeLabel.text = @"Time left: 00:45";
     timeLabel.color = [SKColor whiteColor];
-    timeLabel.position = CGPointMake(_size.width, _size.height - timeLabel.frame.size.height);
+    timeLabel.position = CGPointMake(_size.width - UI_PADDING, _size.height - timeLabel.frame.size.height - UI_PADDING);
     timeLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
     
     return timeLabel;

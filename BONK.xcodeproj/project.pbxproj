@@ -34,6 +34,10 @@
 		08CE41D018BA365600481595 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 08CE41CF18BA365600481595 /* GameOverScene.m */; };
 		08CE41D218BA3D3400481595 /* GameOver@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08CE41D118BA3D3400481595 /* GameOver@2x.png */; };
 		08CE41D518BA3FC400481595 /* NodeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 08CE41D418BA3FC400481595 /* NodeFactory.m */; };
+		E428969B18BA5A42002ACE6A /* Bomb-Home.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E428969718BA5A42002ACE6A /* Bomb-Home.mp3 */; };
+		E428969C18BA5A42002ACE6A /* Bomb-Lost.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E428969818BA5A42002ACE6A /* Bomb-Lost.mp3 */; };
+		E428969D18BA5A42002ACE6A /* Bounce.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E428969918BA5A42002ACE6A /* Bounce.mp3 */; };
+		E428969E18BA5A42002ACE6A /* New-Bomb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E428969A18BA5A42002ACE6A /* New-Bomb.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +89,10 @@
 		08CE41D318BA3FC400481595 /* NodeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeFactory.h; sourceTree = "<group>"; };
 		08CE41D418BA3FC400481595 /* NodeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeFactory.m; sourceTree = "<group>"; };
 		08CE41D618BA425400481595 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = ../Common.h; sourceTree = "<group>"; };
+		E428969718BA5A42002ACE6A /* Bomb-Home.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bomb-Home.mp3"; sourceTree = "<group>"; };
+		E428969818BA5A42002ACE6A /* Bomb-Lost.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bomb-Lost.mp3"; sourceTree = "<group>"; };
+		E428969918BA5A42002ACE6A /* Bounce.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bounce.mp3; sourceTree = "<group>"; };
+		E428969A18BA5A42002ACE6A /* New-Bomb.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "New-Bomb.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +123,7 @@
 		08CE416B18B9FCD600481595 = {
 			isa = PBXGroup;
 			children = (
+				E428969618BA5A42002ACE6A /* Sounds */,
 				08CE41BA18B9FF0700481595 /* Art */,
 				08CE417F18B9FCD600481595 /* BONK */,
 				08CE41A318B9FCD600481595 /* BONKTests */,
@@ -212,6 +221,17 @@
 			name = Art;
 			sourceTree = "<group>";
 		};
+		E428969618BA5A42002ACE6A /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				E428969718BA5A42002ACE6A /* Bomb-Home.mp3 */,
+				E428969818BA5A42002ACE6A /* Bomb-Lost.mp3 */,
+				E428969918BA5A42002ACE6A /* Bounce.mp3 */,
+				E428969A18BA5A42002ACE6A /* New-Bomb.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -294,10 +314,14 @@
 				08CE41C718BA321800481595 /* Bomb@2x.png in Resources */,
 				08CE41C818BA321800481595 /* Paddle@2x.png in Resources */,
 				08CE41CA18BA340700481595 /* MainMenu@2x.png in Resources */,
+				E428969C18BA5A42002ACE6A /* Bomb-Lost.mp3 in Resources */,
+				E428969E18BA5A42002ACE6A /* New-Bomb.mp3 in Resources */,
 				08CE41D218BA3D3400481595 /* GameOver@2x.png in Resources */,
 				08CE41BE18BA235900481595 /* spark.png in Resources */,
 				08CE419718B9FCD600481595 /* Images.xcassets in Resources */,
 				08CE418D18B9FCD600481595 /* Main.storyboard in Resources */,
+				E428969B18BA5A42002ACE6A /* Bomb-Home.mp3 in Resources */,
+				E428969D18BA5A42002ACE6A /* Bounce.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +554,7 @@
 				08CE41AF18B9FCD600481595 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		08CE41B018B9FCD600481595 /* Build configuration list for PBXNativeTarget "BONKTests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +563,7 @@
 				08CE41B218B9FCD600481595 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

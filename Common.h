@@ -21,6 +21,7 @@ typedef NS_OPTIONS(uint32_t, PhysicsCategory)
 
 #define ARC4RANDOM_MAX 0x100000000
 #define UI_FONT @"ArialRoundedMTBold"
+#define UI_PADDING 5
 
 static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max)
 {

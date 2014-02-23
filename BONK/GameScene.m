@@ -37,6 +37,11 @@
     NSTimeInterval _dt;
     NSTimeInterval _lastUpdateTime;
     BOOL _gameStarted;
+	
+	SKAction *_bombLostSound;
+	SKAction *_bombHomeSound;
+	SKAction *_bounceSound;
+	SKAction *_newBombSound;
 }
 
 - (instancetype)initWithSize:(CGSize)size
@@ -72,8 +77,13 @@
     [self addChild:_player = [factory getPlayer]];
     [self addChild:_target = [factory getTarget]];
     [self addChild:_floor = [factory getFloor]];
-    [self addChild:_getReadyLabel = [factory getReadyLabel]];
     [self addChild:_getReadyOverlay = [factory getReadyOverlay]];
+    [self addChild:_getReadyLabel = [factory getReadyLabel]];
+	
+	_bombLostSound = [SKAction playSoundFileNamed:@"Bomb-Lost.mp3" waitForCompletion:NO];
+	_bombHomeSound = [SKAction playSoundFileNamed:@"Bomb-Home.mp3" waitForCompletion:NO];
+	_bounceSound = [SKAction playSoundFileNamed:@"Bounce.mp3" waitForCompletion:NO];
+	_newBombSound = [SKAction playSoundFileNamed:@"New-Bomb.mp3" waitForCompletion:NO];
 }
 
 #pragma mark - Touch handling
@@ -174,6 +184,9 @@
     SKSpriteNode *b = (SKSpriteNode *)contact.bodyB.node;
     SKSpriteNode *bomb = [a.name isEqualToString:@"bomb"] ? a : b;
     
+	if (collision == (PhysicsCategoryBomb | PhysicsCategoryPlayer)) {
+		[self runAction:_bounceSound];
+	}
     if (collision == (PhysicsCategoryBomb | PhysicsCategoryGoal)) {
         [self addPoint:bomb];
     }
@@ -232,6 +245,7 @@
 
 - (void)addPoint:(SKSpriteNode *)bomb
 {
+	[self runAction:_bombHomeSound];
     SKEmitterNode *explosion = [self newExplosion:[UIColor greenColor]];
     explosion.position = bomb.position;
     _score++;
@@ -242,6 +256,7 @@
 
 - (void)lose:(SKSpriteNode *)bomb
 {
+	[self runAction:_bombLostSound];
     SKEmitterNode *explosion = [self newExplosion:[UIColor brownColor]];
     explosion.position = bomb.position;
 
@@ -267,6 +282,7 @@
     [self addChild:bomb];
     CGVector throwImpulse = CGVectorMake(ScalarRandomRange(5, 15), 0);
     [bomb.physicsBody applyImpulse:throwImpulse];
+	[self runAction:_newBombSound];
 }
 
 - (SKEmitterNode *)newExplosion:(UIColor *) color
