@@ -24,7 +24,6 @@
 		08CE41A818B9FCD600481595 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08CE41A618B9FCD600481595 /* InfoPlist.strings */; };
 		08CE41AA18B9FCD600481595 /* BONKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08CE41A918B9FCD600481595 /* BONKTests.m */; };
 		08CE41B918B9FF0000481595 /* SKSpriteNode+DebugDraw.m in Sources */ = {isa = PBXBuildFile; fileRef = 08CE41B818B9FF0000481595 /* SKSpriteNode+DebugDraw.m */; };
-		08CE41BD18BA235900481595 /* Goal.sks in Resources */ = {isa = PBXBuildFile; fileRef = 08CE41BB18BA235900481595 /* Goal.sks */; };
 		08CE41BE18BA235900481595 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 08CE41BC18BA235900481595 /* spark.png */; };
 		08CE41C618BA321800481595 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08CE41C318BA321800481595 /* Background@2x.png */; };
 		08CE41C718BA321800481595 /* Bomb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08CE41C418BA321800481595 /* Bomb@2x.png */; };
@@ -75,7 +74,6 @@
 		08CE41A918B9FCD600481595 /* BONKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BONKTests.m; sourceTree = "<group>"; };
 		08CE41B718B9FF0000481595 /* SKSpriteNode+DebugDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SKSpriteNode+DebugDraw.h"; path = "../SKSpriteNode+DebugDraw.h"; sourceTree = "<group>"; };
 		08CE41B818B9FF0000481595 /* SKSpriteNode+DebugDraw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SKSpriteNode+DebugDraw.m"; path = "../SKSpriteNode+DebugDraw.m"; sourceTree = "<group>"; };
-		08CE41BB18BA235900481595 /* Goal.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Goal.sks; sourceTree = "<group>"; };
 		08CE41BC18BA235900481595 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		08CE41C318BA321800481595 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
 		08CE41C418BA321800481595 /* Bomb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bomb@2x.png"; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 				08CE41CF18BA365600481595 /* GameOverScene.m */,
 				08CE41CB18BA341500481595 /* MainMenuScene.h */,
 				08CE41CC18BA341500481595 /* MainMenuScene.m */,
-				08CE41BB18BA235900481595 /* Goal.sks */,
 				08CE41BC18BA235900481595 /* spark.png */,
 				08CE419618B9FCD600481595 /* Images.xcassets */,
 				08CE418018B9FCD600481595 /* Supporting Files */,
@@ -309,7 +306,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				08CE41C618BA321800481595 /* Background@2x.png in Resources */,
-				08CE41BD18BA235900481595 /* Goal.sks in Resources */,
 				08CE418418B9FCD600481595 /* InfoPlist.strings in Resources */,
 				08CE41C718BA321800481595 /* Bomb@2x.png in Resources */,
 				08CE41C818BA321800481595 /* Paddle@2x.png in Resources */,
