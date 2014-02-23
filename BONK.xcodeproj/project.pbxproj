@@ -37,6 +37,8 @@
 		E428969C18BA5A42002ACE6A /* Bomb-Lost.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E428969818BA5A42002ACE6A /* Bomb-Lost.mp3 */; };
 		E428969D18BA5A42002ACE6A /* Bounce.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E428969918BA5A42002ACE6A /* Bounce.mp3 */; };
 		E428969E18BA5A42002ACE6A /* New-Bomb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E428969A18BA5A42002ACE6A /* New-Bomb.mp3 */; };
+		E42896A018BA6F86002ACE6A /* Song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E428969F18BA6F86002ACE6A /* Song.mp3 */; };
+		E42896A218BA6F95002ACE6A /* Intro-Song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E42896A118BA6F95002ACE6A /* Intro-Song.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		E428969818BA5A42002ACE6A /* Bomb-Lost.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bomb-Lost.mp3"; sourceTree = "<group>"; };
 		E428969918BA5A42002ACE6A /* Bounce.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bounce.mp3; sourceTree = "<group>"; };
 		E428969A18BA5A42002ACE6A /* New-Bomb.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "New-Bomb.mp3"; sourceTree = "<group>"; };
+		E428969F18BA6F86002ACE6A /* Song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Song.mp3; sourceTree = "<group>"; };
+		E42896A118BA6F95002ACE6A /* Intro-Song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Intro-Song.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +225,8 @@
 		E428969618BA5A42002ACE6A /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				E42896A118BA6F95002ACE6A /* Intro-Song.mp3 */,
+				E428969F18BA6F86002ACE6A /* Song.mp3 */,
 				E428969718BA5A42002ACE6A /* Bomb-Home.mp3 */,
 				E428969818BA5A42002ACE6A /* Bomb-Lost.mp3 */,
 				E428969918BA5A42002ACE6A /* Bounce.mp3 */,
@@ -305,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E42896A218BA6F95002ACE6A /* Intro-Song.mp3 in Resources */,
 				08CE41C618BA321800481595 /* Background@2x.png in Resources */,
 				08CE418418B9FCD600481595 /* InfoPlist.strings in Resources */,
 				08CE41C718BA321800481595 /* Bomb@2x.png in Resources */,
@@ -312,6 +319,7 @@
 				08CE41CA18BA340700481595 /* MainMenu@2x.png in Resources */,
 				E428969C18BA5A42002ACE6A /* Bomb-Lost.mp3 in Resources */,
 				E428969E18BA5A42002ACE6A /* New-Bomb.mp3 in Resources */,
+				E42896A018BA6F86002ACE6A /* Song.mp3 in Resources */,
 				08CE41D218BA3D3400481595 /* GameOver@2x.png in Resources */,
 				08CE41BE18BA235900481595 /* spark.png in Resources */,
 				08CE419718B9FCD600481595 /* Images.xcassets in Resources */,

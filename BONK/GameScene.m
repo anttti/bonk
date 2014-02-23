@@ -13,6 +13,7 @@
 #import "SKSpriteNode+DebugDraw.h"
 @import CoreMotion;
 @import GLKit;
+@import AVFoundation;
 
 #define MAX_PLAYER_SPEED 600
 #define GAME_TIME 45
@@ -42,12 +43,14 @@
 	SKAction *_bombHomeSound;
 	SKAction *_bounceSound;
 	SKAction *_newBombSound;
+	AVAudioPlayer *_backgroundMusicPlayer;
 }
 
 - (instancetype)initWithSize:(CGSize)size
 {
     if (self = [super initWithSize:size]) {
         [self setupUI];
+		[self playBackgroundMusic];
         
         _motionManager = [CMMotionManager new];
         _motionManager.accelerometerUpdateInterval = 0.05;
@@ -84,6 +87,16 @@
 	_bombHomeSound = [SKAction playSoundFileNamed:@"Bomb-Home.mp3" waitForCompletion:NO];
 	_bounceSound = [SKAction playSoundFileNamed:@"Bounce.mp3" waitForCompletion:NO];
 	_newBombSound = [SKAction playSoundFileNamed:@"New-Bomb.mp3" waitForCompletion:NO];
+}
+
+- (void)playBackgroundMusic
+{
+	NSError *error;
+	NSURL *musicUrl = [[NSBundle mainBundle] URLForResource:@"Song.mp3" withExtension:nil];
+	_backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:musicUrl error:&error];
+	_backgroundMusicPlayer.numberOfLoops = -1;
+	[_backgroundMusicPlayer prepareToPlay];
+	[_backgroundMusicPlayer play];
 }
 
 #pragma mark - Touch handling
@@ -246,7 +259,7 @@
 - (void)addPoint:(SKSpriteNode *)bomb
 {
 	[self runAction:_bombHomeSound];
-    SKEmitterNode *explosion = [self newExplosion:[UIColor greenColor]];
+    SKEmitterNode *explosion = [self newExplosion:[UIColor colorWithRed:0.902 green:0.573 blue:0.055 alpha:1]];
     explosion.position = bomb.position;
     _score++;
     
@@ -257,7 +270,7 @@
 - (void)lose:(SKSpriteNode *)bomb
 {
 	[self runAction:_bombLostSound];
-    SKEmitterNode *explosion = [self newExplosion:[UIColor brownColor]];
+    SKEmitterNode *explosion = [self newExplosion:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
     explosion.position = bomb.position;
 
     _score -= 2;
