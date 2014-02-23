@@ -129,4 +129,51 @@
     return getReadyLabel;
 }
 
+- (SKSpriteNode *)getBomb
+{
+	SKSpriteNode *bomb = [SKSpriteNode spriteNodeWithImageNamed:@"Bomb"];
+    CGPoint startPos = CGPointMake(-bomb.size.width / 2, bomb.size.height / 2);
+    startPos = CGPointMake(0, _size.height - bomb.size.height / 2);
+    bomb.position = startPos;
+    bomb.name = @"bomb";
+    bomb.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:bomb.size.width / 2];
+    bomb.physicsBody.restitution = 1.0;
+    bomb.physicsBody.categoryBitMask = PhysicsCategoryBomb;
+    bomb.physicsBody.collisionBitMask = PhysicsCategoryBomb | PhysicsCategoryPlayer | PhysicsCategoryEdge;
+    bomb.physicsBody.contactTestBitMask = PhysicsCategoryGoal | PhysicsCategoryFloor;
+	
+	return bomb;
+}
+
+- (SKEmitterNode *)getExplosionOfColor:(UIColor *) color
+{
+    SKEmitterNode *explosion = [[SKEmitterNode alloc] init];
+    [explosion setParticleTexture:[SKTexture textureWithImageNamed:@"spark.png"]];
+    [explosion setParticleColor:color];
+    [explosion setNumParticlesToEmit:100];
+    [explosion setParticleBirthRate:450];
+    [explosion setParticleLifetime:2];
+    [explosion setEmissionAngleRange:360];
+    [explosion setParticleSpeed:100];
+    [explosion setParticleSpeedRange:50];
+    [explosion setXAcceleration:0];
+    [explosion setYAcceleration:0];
+    [explosion setParticleAlpha:0.8];
+    [explosion setParticleAlphaRange:0.2];
+    [explosion setParticleAlphaSpeed:-0.5];
+    [explosion setParticleScale:0.75];
+    [explosion setParticleScaleRange:0.4];
+    [explosion setParticleScaleSpeed:-0.5];
+    [explosion setParticleRotation:0];
+    [explosion setParticleRotationRange:0];
+    [explosion setParticleRotationSpeed:0];
+    
+    [explosion setParticleColorBlendFactor:1];
+    [explosion setParticleColorBlendFactorRange:0];
+    [explosion setParticleColorBlendFactorSpeed:0];
+    [explosion setParticleBlendMode:SKBlendModeAdd];
+    
+    return explosion;
+}
+
 @end

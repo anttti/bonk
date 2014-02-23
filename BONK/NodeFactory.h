@@ -21,5 +21,7 @@
 - (SKSpriteNode *)getFloor;
 - (SKSpriteNode *)getReadyOverlay;
 - (SKLabelNode *)getReadyLabel;
+- (SKSpriteNode *)getBomb;
+- (SKEmitterNode *)getExplosionOfColor:(UIColor *)color;
 
 @end

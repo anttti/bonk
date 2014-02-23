@@ -37,7 +37,7 @@
     NSTimeInterval _dt;
     NSTimeInterval _lastUpdateTime;
     BOOL _gameStarted;
-	
+	NodeFactory *_factory;
 	SKAction *_bombLostSound;
 	SKAction *_bombHomeSound;
 	SKAction *_bounceSound;
@@ -64,21 +64,21 @@
 
 - (void)setupUI
 {
-    NodeFactory *factory = [[NodeFactory alloc] initWithSize:self.size];
+    _factory = [[NodeFactory alloc] initWithSize:self.size];
     
     self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
     self.physicsBody.categoryBitMask = PhysicsCategoryEdge;
     self.physicsWorld.contactDelegate = self;
     self.physicsWorld.gravity = CGVectorMake(0, -5);
     
-    [self addChild:_background = [factory getBackground]];
-    [self addChild:_scoreLabel = [factory getScoreLabel]];
-    [self addChild:_timeLabel = [factory getTimeLabel]];
-    [self addChild:_player = [factory getPlayer]];
-    [self addChild:_target = [factory getTarget]];
-    [self addChild:_floor = [factory getFloor]];
-    [self addChild:_getReadyOverlay = [factory getReadyOverlay]];
-    [self addChild:_getReadyLabel = [factory getReadyLabel]];
+    [self addChild:_background = [_factory getBackground]];
+    [self addChild:_scoreLabel = [_factory getScoreLabel]];
+    [self addChild:_timeLabel = [_factory getTimeLabel]];
+    [self addChild:_player = [_factory getPlayer]];
+    [self addChild:_target = [_factory getTarget]];
+    [self addChild:_floor = [_factory getFloor]];
+    [self addChild:_getReadyOverlay = [_factory getReadyOverlay]];
+    [self addChild:_getReadyLabel = [_factory getReadyLabel]];
 	
 	_bombLostSound = [SKAction playSoundFileNamed:@"Bomb-Lost.mp3" waitForCompletion:NO];
 	_bombHomeSound = [SKAction playSoundFileNamed:@"Bomb-Home.mp3" waitForCompletion:NO];
@@ -269,16 +269,7 @@
 
 - (void)addBomb
 {
-    SKSpriteNode *bomb = [SKSpriteNode spriteNodeWithImageNamed:@"Bomb"];
-    CGPoint startPos = CGPointMake(-bomb.size.width / 2, bomb.size.height / 2);
-    startPos = CGPointMake(0, self.size.height - bomb.size.height / 2);
-    bomb.position = startPos;
-    bomb.name = @"bomb";
-    bomb.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:bomb.size.width / 2];
-    bomb.physicsBody.restitution = 1.0;
-    bomb.physicsBody.categoryBitMask = PhysicsCategoryBomb;
-    bomb.physicsBody.collisionBitMask = PhysicsCategoryBomb | PhysicsCategoryPlayer | PhysicsCategoryEdge;
-    bomb.physicsBody.contactTestBitMask = PhysicsCategoryGoal | PhysicsCategoryFloor;
+    SKSpriteNode *bomb = [_factory getBomb];
     [self addChild:bomb];
     CGVector throwImpulse = CGVectorMake(ScalarRandomRange(5, 15), 0);
     [bomb.physicsBody applyImpulse:throwImpulse];
@@ -287,32 +278,7 @@
 
 - (SKEmitterNode *)newExplosion:(UIColor *) color
 {
-    SKEmitterNode *explosion = [[SKEmitterNode alloc] init];
-    [explosion setParticleTexture:[SKTexture textureWithImageNamed:@"spark.png"]];
-    [explosion setParticleColor:color];
-    [explosion setNumParticlesToEmit:100];
-    [explosion setParticleBirthRate:450];
-    [explosion setParticleLifetime:2];
-    [explosion setEmissionAngleRange:360];
-    [explosion setParticleSpeed:100];
-    [explosion setParticleSpeedRange:50];
-    [explosion setXAcceleration:0];
-    [explosion setYAcceleration:0];
-    [explosion setParticleAlpha:0.8];
-    [explosion setParticleAlphaRange:0.2];
-    [explosion setParticleAlphaSpeed:-0.5];
-    [explosion setParticleScale:0.75];
-    [explosion setParticleScaleRange:0.4];
-    [explosion setParticleScaleSpeed:-0.5];
-    [explosion setParticleRotation:0];
-    [explosion setParticleRotationRange:0];
-    [explosion setParticleRotationSpeed:0];
-    
-    [explosion setParticleColorBlendFactor:1];
-    [explosion setParticleColorBlendFactorRange:0];
-    [explosion setParticleColorBlendFactorSpeed:0];
-    [explosion setParticleBlendMode:SKBlendModeAdd];
-    
+	SKEmitterNode *explosion = [_factory getExplosionOfColor:color];
     [self addChild:explosion];
     
     return explosion;
